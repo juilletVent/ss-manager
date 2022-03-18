@@ -4,17 +4,16 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
+    AdminLogin: typeof import('./src/components/AdminLogin.vue')['default']
+    'AdminLogin copy': typeof import('./src/components/AdminLogin copy.vue')['default']
     AdminPage: typeof import('./src/components/AdminPage.vue')['default']
-    ElAlert: typeof import('element-plus/es')['ElAlert']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElCheckbox: typeof import('element-plus/es')['ElCheckbox']
     ElDescriptions: typeof import('element-plus/es')['ElDescriptions']
     ElDescriptionsItem: typeof import('element-plus/es')['ElDescriptionsItem']
     ElForm: typeof import('element-plus/es')['ElForm']
     ElFormItem: typeof import('element-plus/es')['ElFormItem']
-    ElIcon: typeof import('element-plus/es')['ElIcon']
     ElInput: typeof import('element-plus/es')['ElInput']
-    ElTag: typeof import('element-plus/es')['ElTag']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     UserPage: typeof import('./src/components/UserPage.vue')['default']
   }

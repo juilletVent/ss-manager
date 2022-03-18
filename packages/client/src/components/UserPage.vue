@@ -146,30 +146,10 @@ const submitForm = (formEl: FormInstance | undefined) => {
 </script>
 
 <style type="less" scoped>
-.panel {
-  margin-top: -100px;
-  padding: 50px;
-  border-radius: 5px;
-  box-shadow: 0 0 20px rgb(0 0 0 / 56%);
-  background-color: #fff;
-}
-.title {
-  margin-bottom: 50px;
-  font-size: 28px;
-  text-align: center;
-  font-weight: bold;
-  color: #333;
-}
 .passwd {
   margin-bottom: 10px;
 }
-.btn-group {
-  margin-top: 40px;
-  text-align: center;
-}
-.btn-group button {
-  width: 150px;
-}
+
 .qr-canvas {
   display: block;
   border-radius: 5px;
