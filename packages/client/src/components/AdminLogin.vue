@@ -28,7 +28,10 @@
 
 <script setup lang="ts">
 import { onMounted, ref, reactive } from "vue";
+import { useRouter } from "vue-router";
 import { Check, Lock, Back } from "@element-plus/icons-vue";
+import { RouteMaps } from "@/routeMaps";
+const router = useRouter();
 const loading = ref(false);
 const ruleFormRef = ref<FormInstance>();
 const qrRef = ref<HTMLCanvasElement>();
@@ -50,7 +53,9 @@ const submitForm = (formEl: FormInstance | undefined) => {
       new Promise<void>((resolve, reject) => {
         setTimeout(resolve, 1000);
       })
-        .then(() => {})
+        .then(() => {
+          router.push(RouteMaps.PATH_ADMIN_PAGE);
+        })
         .finally(() => {
           loading.value = false;
         });

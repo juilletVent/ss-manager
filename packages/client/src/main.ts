@@ -5,12 +5,13 @@ import AdminPage from "./components/AdminPage.vue";
 import UserPage from "./components/UserPage.vue";
 
 import "./main.css";
+import { RouteMaps } from "./routeMaps";
 
 const routes = [
-  { path: "/", component: UserPage },
-  { path: "/admin-login", component: AdminLogin },
-  { path: "/admin-page", component: AdminPage },
-  { path: "/:pathMatch(.*)*", redirect: "/" },
+  { path: RouteMaps.PATH_USER, component: UserPage },
+  { path: RouteMaps.PATH_ADMIN_LOGIN, component: AdminLogin },
+  { path: RouteMaps.PATH_ADMIN_PAGE, component: AdminPage },
+  { path: "/:pathMatch(.*)*", redirect: RouteMaps.PATH_USER },
 ];
 const router = createRouter({
   history: createWebHistory(),
