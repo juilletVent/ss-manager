@@ -86,6 +86,7 @@
 <script setup lang="ts">
 import { onMounted, ref, reactive } from "vue";
 import { Check, Lock, Back } from "@element-plus/icons-vue";
+import { FormInstance } from "element-plus";
 import * as QRcode from "qrcode";
 const loading = ref(false);
 const showLink = ref(false);

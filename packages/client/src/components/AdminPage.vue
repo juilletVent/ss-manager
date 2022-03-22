@@ -6,8 +6,16 @@
       <el-table-column prop="pwd" label="用户口令" />
       <el-table-column prop="statistics" label="用量" width="200" />
       <el-table-column label="操作" width="400">
-        <el-button :icon="RefreshLeft">重置流量</el-button>
-        <el-button :icon="Delete" type="danger">删除</el-button>
+        <el-popconfirm title="确定重置流量吗？" placement="top">
+          <template #reference>
+            <el-button :icon="RefreshLeft">重置流量</el-button>
+          </template>
+        </el-popconfirm>
+        <el-popconfirm title="确定删除吗？" placement="top">
+          <template #reference>
+            <el-button :icon="Delete" type="danger">删除</el-button>
+          </template>
+        </el-popconfirm>
       </el-table-column>
     </el-table>
     <el-divider border-style="dashed">添加用户</el-divider>
@@ -45,13 +53,17 @@
           @click="submitForm(ruleFormRef)"
           >添加用户</el-button
         >
-        <el-button
-          :loading="loading"
-          size="large"
-          :icon="RefreshLeft"
-          @click="submitForm(ruleFormRef)"
-          >重置所有流量</el-button
+        <el-popconfirm
+          title="确定重置流量吗？"
+          placement="top"
+          @confirm="submitForm(ruleFormRef)"
         >
+          <template #reference>
+            <el-button :loading="loading" size="large" :icon="RefreshLeft"
+              >重置所有流量</el-button
+            >
+          </template>
+        </el-popconfirm>
       </div>
     </el-form>
   </div>
@@ -115,6 +127,11 @@ const tableData = reactive([
     pwd: "pwdsad了;jlkjfkdlsffa",
     statistics: "12.16 GB",
   },
+  {
+    user: "B哥",
+    pwd: "pwdsad了;jlkjfkdlsffa",
+    statistics: "12.16 GB",
+  },
 ]);
 const submitForm = (formEl: FormInstance | undefined) => {
   if (!formEl) return;
@@ -145,7 +162,7 @@ const submitForm = (formEl: FormInstance | undefined) => {
   background-color: #fff;
 }
 .el-divider {
-  margin: 70px 0;
+  margin: 50px 0;
 }
 .cs-user-add {
   width: 500px;
